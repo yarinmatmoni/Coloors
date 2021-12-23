@@ -7,6 +7,12 @@ sliders.forEach((slider) => {
     slider.addEventListener("input",hslControls);
 });
 
+colorDivs.forEach((div,index) => {
+    div.addEventListener("change", () =>{
+        updateTextUi(index);
+    });
+});
+
 function generateHex() {
     const hexColor = chroma.random();
     return hexColor;
@@ -65,6 +71,20 @@ function hslControls(e){
         .set("hsl.h",hue.value);
     
     colorDivs[index].style.backgroundColor = color;
+}
+
+function updateTextUi(index) {
+    const activeDiv = colorDivs[index];
+    const color = chroma(activeDiv.style.backgroundColor);
+    const textHex = activeDiv.querySelector("h2");
+    const icons = activeDiv.querySelectorAll(".controls button");
+    textHex.innerText = color.hex();
+
+    checkTextContrast(color,textHex);
+    icons.forEach((icon) => {
+        console.log(icon);
+        checkTextContrast(color,icon);
+    })
 }
 
 randomColors();
