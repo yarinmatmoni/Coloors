@@ -70,6 +70,7 @@ function hslControls(e){
     const bgColor = initialColor[index];
     let color = chroma(bgColor).set('hsl.s',saturation.value).set('hsl.l',brightness.value).set('hsl.h',hue.value);
     colorDivs[index].style.backgroundColor = color;
+    colorizeSliders(color,hue,brightness,saturation);
 }
 
 function updateTextUi(index) {
