@@ -47,13 +47,13 @@ svg {
   position: absolute;
   bottom: 0%;
   background: rgb(225, 225, 225);
-  /* opacity: 0; */
+  opacity: 0;
   padding: 1rem;
   width: 80%;
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
-  /* pointer-events: none; */
-  /* transform: translateY(100px); */
+  pointer-events: none;
+  transform: translateY(100px);
   transition: all 0.5s ease-in-out;
   color: rgb(10, 10, 10);
 }
@@ -148,6 +148,7 @@ input[type="range"]::-webkit-slider-thumb {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.5s ease-in-out;
   opacity: 0;
   pointer-events: none;
 }
