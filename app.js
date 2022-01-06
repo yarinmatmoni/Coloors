@@ -43,6 +43,12 @@ closeAdjustments.forEach((button, index) => {
     });
 });
 
+lockButton.forEach((button,index) => {
+    button.addEventListener("click", () => {
+        lockColor(index);
+    });
+});
+
 function generateHex() {
     const hexColor = chroma.random();
     return hexColor;
@@ -55,7 +61,14 @@ function randomColors() {
     colorDivs.forEach((div, index) => {
         const hexText = div.children[0];
         const randomColor = generateHex();
-        initialColor.push(chroma(randomColor).hex());
+        
+        if(div.classList.contains("locked")){
+            initialColor.push(hexText.innerText);
+            return;
+        }else {
+            initialColor.push(chroma(randomColor).hex());
+        }
+
         div.style.backgroundColor = randomColor;
         hexText.innerText = randomColor;
         checkTextContrast(randomColor, hexText);
@@ -162,6 +175,12 @@ function openAdjustmentPanel(index) {
 
 function closeAdjustmentPanel(index) {
     sliderContainers[index].classList.remove("active");
+}
+
+function lockColor(index) {
+    colorDivs[index].classList.toggle("locked");
+    lockButton[index].children[0].classList.toggle("fa-lock-open");
+    lockButton[index].children[0].classList.toggle("fa-lock");
 }
 
 randomColors();
