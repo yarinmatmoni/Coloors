@@ -64,7 +64,9 @@ svg {
   transform: translateY(0px);
 }
 
-.sliders button {
+.sliders button,
+.close-save,
+.close-library {
   position: absolute;
   top: 0;
   right: 0;
@@ -139,7 +141,9 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 1rem;
 }
 
-.copy-continer {
+.copy-continer,
+.save-continer,
+.library-continer {
   position: fixed;
   top: 0%;
   background: rgba(0, 0, 0, 0.5);
@@ -153,7 +157,9 @@ input[type="range"]::-webkit-slider-thumb {
   pointer-events: none;
 }
 
-.copy-popup {
+.copy-popup,
+.save-popup,
+.library-popup {
   background: white;
   display: flex;
   flex-direction: column;
@@ -166,15 +172,36 @@ input[type="range"]::-webkit-slider-thumb {
   min-height: 30vh;
 }
 
-.copy-popup h4 {
+.copy-popup h4,
+.save-popup h4,
+.library-popup h4 {
   font-size: 2rem;
+  padding: 1.5rem;
 }
 
-.copy-continer.active {
+.copy-continer.active,
+.save-continer.active,
+.library-continer.active {
   opacity: 1;
   pointer-events: all;
 }
 
-.copy-popup.active {
+.copy-popup.active,
+.save-popup.avtive,
+.library-popup.acive {
   transform: translateY(0rem);
+}
+
+.submit-save {
+  margin: 2rem;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  background: rgb(60, 60, 92);
+}
+
+.save-name {
+  padding: 0.5rem;
 }

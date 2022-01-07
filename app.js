@@ -8,6 +8,7 @@ const lockButton = document.querySelectorAll(".lock");
 const closeAdjustments = document.querySelectorAll(".close-adjusment");
 const sliderContainers = document.querySelectorAll(".sliders");
 let initialColor;
+let savedpalettes= [];
 
 sliders.forEach((slider) => {
     slider.addEventListener("input", hslControls);
@@ -181,6 +182,29 @@ function lockColor(index) {
     colorDivs[index].classList.toggle("locked");
     lockButton[index].children[0].classList.toggle("fa-lock-open");
     lockButton[index].children[0].classList.toggle("fa-lock");
+}
+
+// Imlempent save to palette 
+
+const saveBtn = document.querySelector(".save");
+const submitSave = document.querySelector(".submit-save");
+const closeSave = document.querySelector(".close-save");
+const saveContainer = document.querySelector(".save-continer");
+const saveInput = document.querySelector(".save-continer input");
+
+saveBtn.addEventListener("click",openPalette);
+closeSave.addEventListener("click",closePalette);
+
+function openPalette(e) {
+    const popup = saveContainer.children[0];
+    saveContainer.classList.add("active");
+    popup.classList.add("active");
+}
+
+function closePalette(e) {
+    const popup = saveContainer.children[0];
+    saveContainer.classList.remove("active");
+    popup.classList.remove("active");
 }
 
 randomColors();
