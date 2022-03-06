@@ -215,6 +215,10 @@ input[type="range"]::-webkit-slider-thumb {
   max-height: 50vh;
 }
 
+.library-continer ::-webkit-scrollbar {
+  display: none;
+}
+
 .custom-paleete {
   display: flex;
   align-items: center;
